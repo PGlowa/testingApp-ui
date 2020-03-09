@@ -1,0 +1,38 @@
+<div class="container">
+  <div class="row actionBar">
+    <div class="dropDownWrapper">
+      <ng-multiselect-dropdown
+        [placeholder]="'Select devices'"
+        [data]="deviceDropdownList"
+        (onSelect)="deviceOnSelect($event)"
+        (onSelectAll)="deviceOnSelectAll($event)"
+        (onDeSelectAll)="deviceOnDeSelectAll($event)"
+        [settings]="deviceDropdownSettings"
+      >
+      </ng-multiselect-dropdown>
+    </div>
+
+    <div class="separator"></div>
+
+    <div class="dropDownWrapper">
+      <ng-multiselect-dropdown
+        [placeholder]="'Select countries'"
+        [data]="countryDropdownList"
+        [(ngModel)]="countrySelectedItems"
+        [settings]="countryDropdownSettings"
+      >
+      </ng-multiselect-dropdown>
+    </div>
+
+    <div class="separator"></div>
+
+    <button class="btn btn-primary" (click)="performSearch()">Search</button>
+  </div>
+  <mat-spinner *ngIf="this.loading"></mat-spinner>
+  <ng-container *ngIf="this.foundTesters">
+    <div *ngFor="let tester of sort(this.foundTesters)">
+      <app-tester-block [tester]="tester" [devices]=this.deviceDropdownList></app-tester-block>
+    </div>
+  </ng-container>
+
+</div>

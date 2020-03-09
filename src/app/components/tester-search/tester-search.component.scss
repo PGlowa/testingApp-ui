@@ -1,0 +1,23 @@
+.container {
+  background-color: ghostwhite;
+  height: 100vh;
+}
+
+.dropDownWrapper {
+  width: 30%;
+}
+
+.separator {
+  width: 10%;
+  min-width: 25px;
+}
+
+.actionBar {
+  justify-content: space-evenly;
+  padding: 15px;
+}
+
+mat-spinner {
+  left: 45%;
+  top: 30%;
+}
